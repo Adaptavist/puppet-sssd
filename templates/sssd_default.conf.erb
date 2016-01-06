@@ -1,0 +1,32 @@
+[domain/default]
+
+debug_level = <%= @debug_level %>
+cache_credentials = False
+ldap_search_base = <%= @ldap_search_base %>
+id_provider = ldap
+auth_provider = ldap
+chpass_provider = ldap
+ldap_uri = <%= @domains.flatten.join(', ') %>
+ldap_tls_cacert = <%= "#{@ldap_tls_cacertdir}/#{@cert_name}" %>
+ldap_id_use_start_tls = True
+ldap_default_bind_dn = <%= "uid=#{@ldap_default_bind_uid},#{@ldap_search_base}" %>
+ldap_default_authtok = <%= @ldap_default_authtok %>
+ldap_tls_cacertdir = <%= @ldap_tls_cacertdir %>
+enumerate = true
+[sssd]
+services = nss, pam
+config_file_version = 2
+
+domains = default
+[nss]
+
+[pam]
+
+[sudo]
+
+[autofs]
+
+[ssh]
+
+[pac]
+

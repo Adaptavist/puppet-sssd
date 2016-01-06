@@ -1,0 +1,10 @@
+name 'adaptavist-sssd'
+version '0.3.5'
+author 'Evgeny Zislis <ezislis@adaptavist.com>'
+summary 'Manage SSSD authentication and configuration.' 
+license 'Apache2'
+source 'git@stash.adaptavist.com:7999/pup/puppet-sssd.git'
+description 'The **SSSD** module configures sssd on all managed hosts by distributing a configuration file.'
+project_page 'https://stash.adaptavist.com/projects/PUP/repos/puppet-sssd'
+
+dependency 'puppetlabs/stdlib'
