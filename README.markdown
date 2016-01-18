@@ -1,4 +1,5 @@
 # SSSD
+[![Build Status](https://travis-ci.org/Adaptavist/puppet-sssd.svg?branch=master)](https://travis-ci.org/Adaptavist/puppet-sssd)
 
 Install and configure SSSD to authenticate users via PAM and NSS with an active directory server.
 
