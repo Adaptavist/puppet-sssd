@@ -1,5 +1,5 @@
 name 'adaptavist-sssd'
-version '0.3.7'
+version '1.0.0'
 author 'Evgeny Zislis <ezislis@adaptavist.com>'
 summary 'Manage SSSD authentication and configuration.' 
 license 'Apache2'
