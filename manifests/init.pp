@@ -36,6 +36,9 @@
 # [*debug_level*]
 # Used to specify the debug level.
 #
+# [*ldap_krb5_enterprise_principal*]
+# sets krb5_use_enterprise_principal flad in sssd.conf
+#
 # === Example
 #
 # class { 'sssd':
@@ -51,16 +54,17 @@
 # Copyright 2014 Adaptavist Ltd, unless otherwise noted.
 #
 class sssd (
-  $type                  = 'default',
-  $domains               = [],
-  $filter_users          = [ 'root' ],
-  $filter_groups         = [ 'root' ],
-  $custom_template       = undef,
-  $ldap_search_base      = undef,
-  $cert_name             = undef,
-  $ldap_default_bind_uid = 'com',
-  $ldap_default_authtok  = undef,
-  $debug_level           = '9',
+  $type                           = 'default',
+  $domains                        = [],
+  $filter_users                   = [ 'root' ],
+  $filter_groups                  = [ 'root' ],
+  $custom_template                = undef,
+  $ldap_search_base               = undef,
+  $cert_name                      = undef,
+  $ldap_default_bind_uid          = 'com',
+  $ldap_default_authtok           = undef,
+  $ldap_krb5_enterprise_principal = false,
+  $debug_level                    = '9',
 ) {
   validate_array($domains)
   validate_array($filter_users)
@@ -110,6 +114,9 @@ class sssd (
   if $custom_template {
     $template = $custom_template
   }
+
+  #work out the boolean value for real_krb5_enterprise_principal
+  $real_krb5_enterprise_principal = str2bool($ldap_krb5_enterprise_principal)
 
   package { $packages : }
     -> file { '/etc/sssd/sssd.conf':
