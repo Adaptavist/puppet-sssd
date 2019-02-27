@@ -13,6 +13,7 @@ ldap_default_bind_dn = <%= "uid=#{@ldap_default_bind_uid},#{@ldap_search_base}" 
 ldap_default_authtok = <%= @ldap_default_authtok %>
 ldap_tls_cacertdir = <%= @ldap_tls_cacertdir %>
 enumerate = true
+krb5_use_enterprise_principal = <%= @real_krb5_enterprise_principal %>
 [sssd]
 services = nss, pam
 config_file_version = 2
