@@ -72,7 +72,7 @@ class sssd (
 
   case $type {
 
-    'default': {
+    'default', default: {
       $ldap_tls_cacertdir = $::osfamily ? {
         'Ubuntu' => '/etc/ssl/certs',
         'CentOS' => '/etc/openldap/cacerts',
